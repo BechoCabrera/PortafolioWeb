@@ -63,7 +63,7 @@ export const es: Translations = {
   'about.yearsLabel': 'Años de experiencia',
   'about.fullStackValue': 'Full Stack',
   'about.fullStackLabel': 'Desarrollo',
-  'about.backendValue': 'Backend y',
+  'about.backendValue': 'Backend',
   'about.backendLabel': 'Arquitectura',
   'services.web.title': 'Aplicaciones web',
   'services.web.description':
