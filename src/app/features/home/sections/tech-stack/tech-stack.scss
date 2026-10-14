@@ -1,0 +1,41 @@
+:host {
+  display: block;
+}
+
+.tech-stack {
+  position: relative;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-background-secondary);
+}
+
+.tech-stack__layout {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(3rem, 8vw, 8rem);
+}
+
+.tech-stack__heading {
+  align-content: start;
+  position: sticky;
+  top: calc(var(--header-height) + 3rem);
+  align-self: start;
+}
+
+.tech-stack__heading::after {
+  grid-column: 2;
+  width: 6rem;
+  height: 1px;
+  margin-top: 2rem;
+  background: linear-gradient(90deg, var(--color-secondary), transparent);
+  content: "";
+}
+
+@media (max-width: 800px) {
+  .tech-stack__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-stack__heading {
+    position: static;
+  }
+}

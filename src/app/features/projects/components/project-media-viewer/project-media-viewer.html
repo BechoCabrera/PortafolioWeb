@@ -1,0 +1,68 @@
+@if (normalizedMedia().length === 0) {
+  <p class="project-media-placeholder">{{ placeholder() }}</p>
+} @else {
+  <section class="project-media-viewer" aria-label="Project media">
+    @for (media of imageMedia(); track media.image.src) {
+      <app-project-image
+        [src]="media.image.src"
+        [alt]="media.image.alt"
+        [caption]="media.image.caption"
+      />
+    }
+
+    @if (desktopGalleryMedia().length > 0) {
+      <section class="project-media-viewer__group">
+        <h3 class="project-media-viewer__title">{{ desktopSectionLabel() }}</h3>
+        @for (media of desktopGalleryMedia(); track media.images[0]?.src) {
+          <app-project-gallery
+            [images]="media.images"
+            [startIndex]="media.startIndex ?? 0"
+            [previousLabel]="previousLabel()"
+            [nextLabel]="nextLabel()"
+            [galleryLabel]="galleryLabel() + ' ' + desktopSectionLabel()"
+            [thumbnailsLabel]="thumbnailsLabel()"
+            [selectImageLabel]="selectImageLabel()"
+          />
+        }
+      </section>
+    }
+
+    @if (mobileGalleryMedia().length > 0) {
+      <section class="project-media-viewer__group project-media-viewer__group--mobile">
+        <h3 class="project-media-viewer__title">{{ mobileSectionLabel() }}</h3>
+        @for (media of mobileGalleryMedia(); track media.images[0]?.src) {
+          <app-project-gallery
+            [images]="media.images"
+            [startIndex]="media.startIndex ?? 0"
+            [previousLabel]="previousLabel()"
+            [nextLabel]="nextLabel()"
+            [galleryLabel]="galleryLabel() + ' ' + mobileSectionLabel()"
+            [thumbnailsLabel]="thumbnailsLabel()"
+            [selectImageLabel]="selectImageLabel()"
+          />
+        }
+      </section>
+    }
+
+    @for (media of videoMedia(); track media.src) {
+      <app-video-showcase
+        [src]="media.src"
+        [poster]="media.poster"
+        [title]="media.title"
+        [playLabel]="videoPlayLabel()"
+      />
+    }
+
+    @if (panoramaMedia().length > 0) {
+      @defer {
+        @for (media of panoramaMedia(); track media.src) {
+          <app-panorama-viewer
+            [src]="media.src"
+            [title]="media.title"
+            [hint]="panoramaHint()"
+          />
+        }
+      }
+    }
+  </section>
+}

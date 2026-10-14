@@ -1,0 +1,110 @@
+:host {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ambient-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  --mouse-x: 50vw;
+  --mouse-y: 30vh;
+}
+
+.ambient-background__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at 30% 25%, black, transparent 82%);
+  opacity: 0.25;
+}
+
+.ambient-background__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.26;
+  animation: ambient-drift 34s ease-in-out infinite alternate;
+}
+
+.ambient-background__blob--violet {
+  top: -10rem;
+  left: -8rem;
+  width: min(42vw, 38rem);
+  height: min(42vw, 38rem);
+  background: rgb(137 84 246 / 30%);
+}
+
+.ambient-background__blob--magenta {
+  right: -16rem;
+  top: 20%;
+  width: min(35vw, 34rem);
+  height: min(35vw, 34rem);
+  background: rgb(224 82 193 / 22%);
+  animation-delay: -12s;
+}
+
+.ambient-background__blob--cyan {
+  left: 40%;
+  bottom: -18rem;
+  width: min(36vw, 30rem);
+  height: min(36vw, 30rem);
+  background: rgb(75 213 231 / 14%);
+  animation-delay: -7s;
+}
+
+.ambient-background__mouse-light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 34rem;
+  height: 34rem;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgb(181 154 248 / 17%),
+    rgb(224 82 193 / 10%) 40%,
+    transparent 75%
+  );
+  filter: blur(28px);
+  opacity: 0;
+  transform: translate3d(var(--mouse-x), var(--mouse-y), 0)
+    translate(-50%, -50%);
+  transition: opacity 240ms ease;
+}
+
+.ambient-background--pointer .ambient-background__mouse-light {
+  opacity: 0.6;
+}
+
+@keyframes ambient-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate3d(1.5rem, -1rem, 0) scale(1.05);
+  }
+}
+
+@media (max-width: 1024px) {
+  .ambient-background__blob {
+    animation-duration: 52s;
+    opacity: 0.18;
+  }
+
+  .ambient-background__mouse-light {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-background__blob {
+    animation: none;
+  }
+}

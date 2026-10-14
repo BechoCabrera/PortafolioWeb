@@ -1,0 +1,53 @@
+<section id="experience" class="experience section-space">
+  <div class="shell">
+    <div class="section-heading">
+      <span class="section-heading__number">04</span>
+      <p class="eyebrow">{{ t("section.experienceEyebrow") }}</p>
+      <h2>{{ t("section.experience") }}</h2>
+    </div>
+
+    <div class="experience__timeline">
+      @for (entry of entries; track entry.company; let entryIndex = $index) {
+        <article class="experience-entry">
+          <div class="experience-entry__rail" aria-hidden="true">
+            <span></span>
+          </div>
+
+          <div class="experience-entry__meta">
+            <p>{{ t(entry.periodKey) }}</p>
+            <span
+              >{{ t("experience.locationLabel") }} / {{ entry.location }}</span
+            >
+          </div>
+
+          <div class="experience-entry__content">
+            <p class="experience-entry__company">{{ entry.company }}</p>
+            <h3>{{ t(entry.roleKey) }}</h3>
+
+            <ul [id]="'experience-responsibilities-' + entryIndex">
+              @for (
+                responsibilityKey of visibleResponsibilities(entry);
+                track responsibilityKey
+              ) {
+                <li>{{ t(responsibilityKey) }}</li>
+              }
+            </ul>
+
+            <button
+              class="experience-entry__toggle"
+              type="button"
+              [attr.aria-expanded]="expanded()"
+              [attr.aria-controls]="'experience-responsibilities-' + entryIndex"
+              (click)="toggleDetails()"
+            >
+              {{
+                expanded() ? t("experience.showLess") : t("experience.showMore")
+              }}
+              <span aria-hidden="true">{{ expanded() ? "−" : "+" }}</span>
+            </button>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

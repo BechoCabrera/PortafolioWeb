@@ -1,0 +1,30 @@
+:host {
+  display: block;
+}
+
+.panorama-viewer h3 {
+  margin: 0 0 0.8rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.panorama-viewer__frame {
+  display: grid;
+  gap: 1rem;
+  border: 1px solid var(--color-border);
+  min-height: 15rem;
+  padding: 1rem;
+  align-content: center;
+  justify-items: start;
+  background: linear-gradient(
+    140deg,
+    color-mix(in srgb, var(--color-surface-elevated) 82%, transparent),
+    color-mix(in srgb, var(--color-surface) 96%, transparent)
+  );
+}
+
+.panorama-viewer__frame p {
+  margin: 0;
+  color: var(--color-text-subtle);
+}

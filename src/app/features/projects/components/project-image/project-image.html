@@ -1,0 +1,20 @@
+<figure class="project-image">
+  <div
+    class="project-image__frame"
+    [class.project-image__frame--portrait]="isMobileScreenshot()"
+  >
+    <img
+      class="project-image__img"
+      [class.project-image__img--contain]="isMobileScreenshot()"
+      [ngSrc]="src()"
+      [alt]="alt()"
+      fill
+      sizes="(max-width: 900px) 100vw, 82vw"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+  @if (caption()) {
+    <figcaption>{{ caption() }}</figcaption>
+  }
+</figure>

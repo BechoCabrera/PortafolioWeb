@@ -1,0 +1,133 @@
+:host {
+  display: block;
+}
+
+.project-detail {
+  min-height: 100vh;
+}
+
+.project-detail__back {
+  display: inline-flex;
+  margin-bottom: 1.8rem;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  transition: color 140ms ease;
+}
+
+.project-detail__back:hover {
+  color: var(--color-text);
+}
+
+.project-hero {
+  border: 1px solid var(--color-border-strong);
+  padding: clamp(1.4rem, 4.5vw, 3rem);
+  background:
+    radial-gradient(circle at 78% 20%, rgb(75 213 231 / 10%), transparent 40%),
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--color-surface-elevated) 88%, transparent),
+      color-mix(in srgb, var(--color-surface) 96%, transparent)
+    );
+}
+
+.project-hero__number {
+  margin: 0;
+  color: var(--color-primary-soft);
+  font-size: 0.74rem;
+}
+
+.project-hero__category {
+  margin: 1rem 0 0;
+  color: var(--color-secondary);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.project-hero h1 {
+  margin: 0.8rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 4.7rem);
+  line-height: 0.94;
+}
+
+.project-hero p {
+  max-width: 56rem;
+  color: var(--color-text-muted);
+}
+
+.project-hero__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 1.3rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-hero__stack li {
+  border: 1px solid var(--color-border);
+  padding: 0.35rem 0.6rem;
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+}
+
+.project-block,
+.project-grid,
+.project-media,
+.project-cta,
+.project-not-found {
+  margin-top: 1.4rem;
+}
+
+.project-block,
+.project-card,
+.project-cta,
+.project-not-found {
+  border: 1px solid var(--color-border);
+  padding: clamp(1.2rem, 3.6vw, 2rem);
+  background: rgb(255 255 255 / 1%);
+}
+
+.project-block h2,
+.project-card h2,
+.project-cta h2,
+.project-not-found h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.35rem);
+}
+
+.project-block p,
+.project-card p,
+.project-card li,
+.project-cta p,
+.project-not-found p {
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.project-card ul {
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.project-block--architecture .project-card {
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.project-cta .button {
+  margin-top: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,29 @@
+<section class="video-showcase">
+  <h3>{{ title() }}</h3>
+  <div class="video-showcase__frame">
+    <video
+      #videoRef
+      [attr.poster]="poster()"
+      [attr.aria-label]="title()"
+      preload="none"
+      [controls]="isPlaying()"
+    >
+      @if (isPlaying()) {
+        <source [src]="src()" type="video/mp4" />
+      }
+      Your browser does not support HTML5 video.
+    </video>
+
+    @if (!isPlaying()) {
+      <button
+        type="button"
+        class="video-showcase__play"
+        [attr.aria-label]="playLabel()"
+        (click)="play()"
+      >
+        <span aria-hidden="true">▶</span>
+        <span>{{ playLabel() }}</span>
+      </button>
+    }
+  </div>
+</section>

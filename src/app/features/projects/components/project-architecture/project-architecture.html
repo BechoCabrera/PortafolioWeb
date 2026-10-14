@@ -1,0 +1,53 @@
+<section class="project-architecture" [attr.aria-label]="sectionLabel()">
+  <ol class="project-architecture__flow" [attr.aria-label]="flowLabel()">
+    @for (node of mainFlow(); track node.id; let index = $index) {
+      <li>
+        <article
+          class="architecture-node"
+          [attr.data-type]="node.type ?? 'main'"
+        >
+          <span class="architecture-node__step">{{ indexLabel(index) }}</span>
+          <strong>{{ node.label }}</strong>
+          @if (node.subtitle) {
+            <p>{{ node.subtitle }}</p>
+          }
+        </article>
+
+        @if (index < mainFlow().length - 1) {
+          @if (findConnection(node.id, mainFlow()[index + 1].id); as link) {
+            <div class="architecture-link" aria-hidden="true">
+              <span>↓</span>
+              @if (link.label) {
+                <small>{{ link.label }}</small>
+              }
+            </div>
+          }
+        }
+      </li>
+    }
+  </ol>
+
+  @if (sideServices().length > 0) {
+    <section
+      class="project-architecture__services"
+      [attr.aria-label]="servicesLabel()"
+    >
+      @for (node of sideServices(); track node.id) {
+        <article class="architecture-node architecture-node--service">
+          <strong>{{ node.label }}</strong>
+          @if (node.subtitle) {
+            <p>{{ node.subtitle }}</p>
+          }
+
+          @if (findRelatedSideConnections(node.id); as links) {
+            <ul>
+              @for (link of links; track trackConnection(link)) {
+                <li>{{ link.label ?? link.from + " → " + link.to }}</li>
+              }
+            </ul>
+          }
+        </article>
+      }
+    </section>
+  }
+</section>

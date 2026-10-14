@@ -1,0 +1,41 @@
+<section id="about" class="about section-space">
+  <div class="shell">
+    <div class="section-heading">
+      <span class="section-heading__number">01</span>
+      <p class="eyebrow">{{ t("section.about") }}</p>
+      <h2>{{ t("section.about") }}</h2>
+    </div>
+
+    <div class="about__grid">
+      <div class="about__visual">
+        <div class="about__frame">
+          <span class="about__fallback" aria-hidden="true">MC</span>
+          <img
+            src="assets/images/profile/manuel-about-neon-cross.png"
+            [alt]="t('about.imageAlt')"
+            width="640"
+            height="760"
+            loading="lazy"
+            (error)="hideUnavailableImage($event)"
+          />
+        </div>
+      </div>
+
+      <div class="about__content">
+        <div class="about__copy">
+          <p>{{ t("about.paragraphOne") }}</p>
+          <p>{{ t("about.paragraphTwo") }}</p>
+        </div>
+
+        <dl class="about__stats">
+          @for (stat of stats; track stat.valueKey) {
+            <div>
+              <dt>{{ t(stat.valueKey) }}</dt>
+              <dd>{{ t(stat.labelKey) }}</dd>
+            </div>
+          }
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>

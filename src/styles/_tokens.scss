@@ -1,0 +1,23 @@
+:root {
+  --color-background: #07030f;
+  --color-background-secondary: #0d0717;
+  --color-surface: #120b1c;
+  --color-surface-elevated: #1a1028;
+  --color-surface-glass: rgb(18 11 28 / 72%);
+  --color-primary: #8954f6;
+  --color-primary-soft: #b59af8;
+  --color-secondary: #e052c1;
+  --color-accent: #4bd5e7;
+  --color-success: #50d890;
+  --color-text: #f7f2ff;
+  --color-text-muted: #b9afc7;
+  --color-text-subtle: #83798f;
+  --color-border: rgb(255 255 255 / 8%);
+  --color-border-strong: rgb(255 255 255 / 15%);
+  --color-grid: rgb(181 154 248 / 4%);
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --header-height: 5rem;
+  --shell-width: 90rem;
+  --shell-gutter: clamp(1.25rem, 4vw, 4rem);
+}

@@ -1,0 +1,72 @@
+<header class="site-header" [class.site-header--scrolled]="isScrolled()">
+  <div class="site-header__inner shell">
+    <a
+      class="brand"
+      href="/#home"
+      [attr.aria-label]="t('nav.homeLabel')"
+      (click)="closeMenu()"
+    >
+      <span>MC</span><span class="brand__dot">.</span>
+    </a>
+
+    <nav class="desktop-nav" [attr.aria-label]="t('footer.navigation')">
+      @for (item of navigationItems; track item.fragment) {
+        <a [href]="'/#' + item.fragment">{{ t(item.labelKey) }}</a>
+      }
+    </nav>
+
+    <div class="site-header__actions">
+      <div
+        class="language-switcher"
+        [attr.aria-label]="t('language.label')"
+        role="group"
+      >
+        <button
+          type="button"
+          [attr.aria-pressed]="languageService.language() === 'es'"
+          (click)="setLanguage('es')"
+        >
+          ES
+        </button>
+        <span aria-hidden="true">/</span>
+        <button
+          type="button"
+          [attr.aria-pressed]="languageService.language() === 'en'"
+          (click)="setLanguage('en')"
+        >
+          EN
+        </button>
+      </div>
+      <a class="button button--compact desktop-cta" href="/#contact">{{
+        t("nav.talk")
+      }}</a>
+      <button
+        class="menu-toggle"
+        type="button"
+        [attr.aria-label]="menuOpen() ? t('nav.closeMenu') : t('nav.openMenu')"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="mobile-navigation"
+        (click)="toggleMenu()"
+      >
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <nav
+    id="mobile-navigation"
+    class="mobile-nav"
+    [class.mobile-nav--open]="menuOpen()"
+    [attr.aria-hidden]="!menuOpen()"
+  >
+    @for (item of navigationItems; track item.fragment; let index = $index) {
+      <a [href]="'/#' + item.fragment" (click)="closeMenu()"
+        ><span>0{{ index + 1 }}</span
+        >{{ t(item.labelKey) }}</a
+      >
+    }
+    <a class="button" href="/#contact" (click)="closeMenu()">{{
+      t("nav.talk")
+    }}</a>
+  </nav>
+</header>

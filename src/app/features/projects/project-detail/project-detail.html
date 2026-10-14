@@ -1,0 +1,111 @@
+<main class="project-detail section-space" id="project-detail-main">
+  <div class="shell">
+    @if (project(); as currentProject) {
+      <a
+        class="project-detail__back"
+        [routerLink]="['/']"
+        fragment="projects"
+        >{{ t("projects.backToProjects") }}</a
+      >
+
+      <section class="project-hero">
+        <p class="project-hero__number">{{ currentProject.number }}</p>
+        <p class="project-hero__category">
+          {{ t(currentProject.categoryKey) }}
+        </p>
+        <h1>{{ currentProject.name }}</h1>
+        <p>{{ t(currentProject.shortDescriptionKey) }}</p>
+        <ul
+          class="project-hero__stack"
+          [attr.aria-label]="t('projects.techStack')"
+        >
+          @for (technology of currentProject.technologies; track technology) {
+            <li>{{ technology }}</li>
+          }
+        </ul>
+      </section>
+
+      <section class="project-block">
+        <h2>{{ t("projects.overview") }}</h2>
+        <p>{{ t(currentProject.descriptionKey) }}</p>
+      </section>
+
+      <section class="project-grid">
+        <article class="project-card">
+          <h2>{{ t("projects.challenge") }}</h2>
+          <p>{{ t(currentProject.problemKey) }}</p>
+        </article>
+        <article class="project-card">
+          <h2>{{ t("projects.solution") }}</h2>
+          <p>{{ t(currentProject.solutionKey) }}</p>
+        </article>
+      </section>
+
+      <section class="project-grid">
+        <article class="project-card">
+          <h2>{{ t("projects.keyFeatures") }}</h2>
+          <ul>
+            @for (featureKey of currentProject.featureKeys; track featureKey) {
+              <li>{{ t(featureKey) }}</li>
+            }
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <h2>{{ t("projects.technicalChallenges") }}</h2>
+          <ul>
+            @for (
+              challengeKey of currentProject.technicalChallengeKeys;
+              track challengeKey
+            ) {
+              <li>{{ t(challengeKey) }}</li>
+            }
+          </ul>
+        </article>
+      </section>
+
+      <section class="project-block project-block--architecture">
+        <article class="project-card">
+          <h2>{{ t("projects.architecture") }}</h2>
+          <app-project-architecture
+            [architecture]="currentProject.architecture"
+            [sectionLabel]="t('projects.architecture.sectionAria')"
+            [flowLabel]="t('projects.architecture.flowAria')"
+            [servicesLabel]="t('projects.architecture.servicesAria')"
+          />
+        </article>
+      </section>
+
+      <section class="project-media project-card">
+        <h2>{{ t("projects.projectHero") }}</h2>
+        <app-project-media-viewer
+          [project]="currentProject"
+          [placeholder]="t('projects.mediaPlaceholder')"
+          [galleryLabel]="t('projects.gallery.aria')"
+          [desktopSectionLabel]="t('projects.media.desktop')"
+          [mobileSectionLabel]="t('projects.media.mobile')"
+          [previousLabel]="t('projects.gallery.previous')"
+          [nextLabel]="t('projects.gallery.next')"
+          [thumbnailsLabel]="t('projects.gallery.thumbnails')"
+          [selectImageLabel]="t('projects.gallery.selectImage')"
+          [videoPlayLabel]="t('projects.video.play')"
+          [panoramaHint]="t('projects.panorama.hint')"
+        />
+      </section>
+
+      <section class="project-cta">
+        <h2>{{ t("projects.cta.title") }}</h2>
+        <p>{{ t("projects.cta.body") }}</p>
+        <a class="button" href="/#contact">{{ t("projects.cta.contact") }}</a>
+      </section>
+    } @else {
+      <section class="project-not-found project-card">
+        <h1>{{ t("projects.notFound.title") }}</h1>
+        <p>{{ t("projects.notFound.body") }}</p>
+        <a class="button" [routerLink]="['/']" fragment="projects">{{
+          t("projects.notFound.back")
+        }}</a>
+      </section>
+    }
+  </div>
+</main>

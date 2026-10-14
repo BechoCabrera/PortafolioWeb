@@ -1,0 +1,13 @@
+<section class="panorama-viewer">
+  <h3>{{ title() }}</h3>
+  <div class="panorama-viewer__frame" #containerRef>
+    <p>{{ hint() }}</p>
+    <button
+      type="button"
+      class="button button--ghost"
+      (click)="initializePanorama()"
+    >
+      Initialize adapter
+    </button>
+  </div>
+</section>

@@ -1,0 +1,97 @@
+<section id="home" class="hero">
+  <div class="hero__grid shell">
+    <div class="hero__content">
+      <div class="hero__status" data-hero="status">
+        <span>{{ t("home.statusLabel") }}</span>
+        <strong><i aria-hidden="true"></i>{{ t("home.statusValue") }}</strong>
+      </div>
+
+      <p class="eyebrow" data-hero="eyebrow">{{ t("home.eyebrow") }}</p>
+      <h1>
+        <span data-hero="title-line-1">{{ t("home.title") }}</span>
+        <span class="hero__title-accent" data-hero="title-line-2">{{
+          t("home.titleLineTwo")
+        }}</span>
+      </h1>
+      <p class="hero__role" data-hero="role">{{ t("home.subtitle") }}</p>
+      <p class="hero__intro" data-hero="intro">{{ t("home.intro") }}</p>
+
+      <ul
+        class="hero__technologies"
+        data-hero="technologies"
+        [attr.aria-label]="t('home.technologyStackLabel')"
+      >
+        <li>Angular</li>
+        <li>.NET</li>
+        <li>SQL Server</li>
+        <li>APIs</li>
+        <li>Cloud</li>
+      </ul>
+
+      <div class="hero__actions" data-hero="actions">
+        <a class="button" href="#projects">{{ t("home.viewWork") }}</a>
+        <a class="button button--ghost" href="#contact">{{ t("home.talk") }}</a>
+      </div>
+    </div>
+
+    <div class="hero__visual" data-hero="visual">
+      <div
+        class="hero__grid-mark"
+        data-parallax-depth="4"
+        aria-hidden="true"
+      ></div>
+      <div class="hero__orbit" data-parallax-depth="9" aria-hidden="true"></div>
+      <div class="hero__portrait-frame" data-parallax-depth="6">
+        <span class="hero__fallback" aria-hidden="true">MC</span>
+        <img
+          src="assets/images/profile/manuel-hero-monocromo.png"
+          [alt]="t('home.imageAlt')"
+          width="720"
+          height="900"
+          fetchpriority="high"
+          (error)="hideUnavailableImage($event)"
+        />
+      </div>
+
+      <span
+        class="hero__tech-tag hero__tech-tag--dotnet"
+        data-parallax-depth="8"
+        aria-hidden="true"
+        >.NET</span
+      >
+      <span
+        class="hero__tech-tag hero__tech-tag--angular"
+        data-parallax-depth="11"
+        aria-hidden="true"
+        >Angular</span
+      >
+      <span
+        class="hero__tech-tag hero__tech-tag--sql"
+        data-parallax-depth="7"
+        aria-hidden="true"
+        >SQL</span
+      >
+      <span
+        class="hero__tech-tag hero__tech-tag--api"
+        data-parallax-depth="10"
+        aria-hidden="true"
+        >API</span
+      >
+
+      <div
+        class="hero__caption hero__caption--top"
+        data-parallax-depth="5"
+        aria-hidden="true"
+      >
+        <span>01</span>{{ t("home.discipline") }}
+      </div>
+      <div
+        class="hero__caption hero__caption--bottom"
+        data-parallax-depth="6"
+        aria-hidden="true"
+      >
+        {{ t("home.productFocus") }}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Update this path if sitemap location changes.
+Sitemap: /sitemap.xml

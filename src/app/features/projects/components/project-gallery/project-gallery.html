@@ -1,0 +1,56 @@
+@if (activeImage(); as image) {
+  <section
+    class="project-gallery"
+    [attr.aria-label]="galleryLabel()"
+    tabindex="0"
+    (keydown)="onKeydown($event)"
+  >
+    <app-project-image
+      [src]="image.src"
+      [alt]="image.alt"
+      [caption]="image.caption"
+    />
+
+    <div class="project-gallery__toolbar">
+      <button
+        type="button"
+        class="project-gallery__button"
+        [attr.aria-label]="previousLabel()"
+        (click)="previous()"
+      >
+        {{ previousLabel() }}
+      </button>
+
+      <p class="project-gallery__counter" aria-live="polite">
+        {{ getCounterText() }}
+      </p>
+
+      <button
+        type="button"
+        class="project-gallery__button"
+        [attr.aria-label]="nextLabel()"
+        (click)="next()"
+      >
+        {{ nextLabel() }}
+      </button>
+    </div>
+
+    @if (images().length > 1) {
+      <ul class="project-gallery__thumbs" [attr.aria-label]="thumbnailsLabel()">
+        @for (item of images(); track item.src; let index = $index) {
+          <li>
+            <button
+              type="button"
+              [class.is-active]="activeIndex() === index"
+              [attr.aria-label]="selectImageLabel() + ' ' + (index + 1)"
+              [attr.aria-current]="activeIndex() === index"
+              (click)="select(index)"
+            >
+              {{ indexLabel(index) }}
+            </button>
+          </li>
+        }
+      </ul>
+    }
+  </section>
+}

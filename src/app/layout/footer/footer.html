@@ -1,0 +1,35 @@
+<footer class="site-footer" aria-label="Footer">
+  <div class="shell site-footer__grid">
+    <div>
+      <a class="site-footer__brand" href="/#home">MC<span>.</span></a>
+      <p>Manuel Cabrera</p>
+      <small>{{ t("footer.role") }}</small>
+    </div>
+
+    <nav [attr.aria-label]="t('footer.navigation')">
+      @for (item of navigationItems; track item.fragment) {
+        <a [href]="'/#' + item.fragment">{{ t(item.labelKey) }}</a>
+      }
+    </nav>
+
+    <nav [attr.aria-label]="t('footer.socialLinks')">
+      <a href="mailto:ingmanuelcs@gmail.com">{{ t("footer.email") }}</a>
+      <a
+        href="https://www.linkedin.com/in/manuel-alberto-cabrera-silva/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >LinkedIn</a
+      >
+      <a
+        href="https://github.com/BechoCabrera"
+        target="_blank"
+        rel="noopener noreferrer"
+        >GitHub</a
+      >
+    </nav>
+  </div>
+  <div class="shell site-footer__bottom">
+    <span>© {{ year }} Manuel Cabrera</span>
+    <span>{{ t("footer.credit") }}</span>
+  </div>
+</footer>

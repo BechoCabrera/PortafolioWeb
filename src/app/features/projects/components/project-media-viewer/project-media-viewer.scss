@@ -1,0 +1,32 @@
+:host {
+  display: block;
+}
+
+.project-media-viewer {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.project-media-viewer__group {
+  display: grid;
+  gap: 0.8rem;
+  --project-image-frame-aspect: 21 / 10;
+}
+
+.project-media-viewer__title {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.84rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-media-viewer__group--mobile {
+  --project-image-portrait-max-width: min(340px, 100%);
+  --project-image-portrait-aspect: 9 / 19;
+}
+
+.project-media-placeholder {
+  margin: 0;
+  color: var(--color-text-muted);
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Replace __SITE_URL__ with your real pages.dev or custom domain after first deployment. -->
+  <url>
+    <loc>__SITE_URL__/</loc>
+  </url>
+  <url>
+    <loc>__SITE_URL__/projects/finca-app</loc>
+  </url>
+  <url>
+    <loc>__SITE_URL__/projects/inventario-app</loc>
+  </url>
+  <url>
+    <loc>__SITE_URL__/projects/ecommerce</loc>
+  </url>
+  <url>
+    <loc>__SITE_URL__/projects/rifa-app</loc>
+  </url>
+</urlset>

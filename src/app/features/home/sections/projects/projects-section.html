@@ -1,0 +1,71 @@
+<section id="projects" class="projects section-space">
+  <div class="shell">
+    <div class="section-heading">
+      <span class="section-heading__number">05</span>
+      <p class="eyebrow">{{ t("section.projectsEyebrow") }}</p>
+      <h2>{{ t("section.projects") }}</h2>
+    </div>
+
+    <div class="projects__list">
+      @for (project of projects; track project.id; let index = $index) {
+        <article
+          class="project-preview"
+          [class.project-preview--reversed]="isReversed(index)"
+        >
+          <div class="project-preview__visual">
+            @if (project.cover) {
+              <img
+                [src]="project.cover"
+                [alt]="project.name"
+                loading="lazy"
+                width="1280"
+                height="800"
+              />
+            } @else {
+              <div class="project-fallback" aria-hidden="true">
+                <div class="project-fallback__window">
+                  <span></span><span></span><span></span>
+                </div>
+                <strong>{{ project.number }} · {{ project.name }}</strong>
+                <p>{{ t("projects.previewEyebrow") }}</p>
+                <ul>
+                  @for (
+                    technology of topTechnologies(project);
+                    track technology
+                  ) {
+                    <li>{{ technology }}</li>
+                  }
+                </ul>
+              </div>
+            }
+          </div>
+
+          <div class="project-preview__content">
+            <p class="project-preview__number">{{ project.number }}</p>
+            <p class="project-preview__category">
+              {{ t(project.categoryKey) }}
+            </p>
+            <h3>{{ project.name }}</h3>
+            <p class="project-preview__description">
+              {{ t(project.shortDescriptionKey) }}
+            </p>
+
+            @if (project.badge) {
+              <span class="project-preview__badge">{{ project.badge }}</span>
+            }
+
+            <ul class="project-preview__stack">
+              @for (technology of topTechnologies(project); track technology) {
+                <li>{{ technology }}</li>
+              }
+            </ul>
+
+            <a class="button" [routerLink]="['/projects', project.slug]">{{
+              t("projects.viewProject")
+            }}</a>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

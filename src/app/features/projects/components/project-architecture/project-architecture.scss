@@ -1,0 +1,101 @@
+:host {
+  display: block;
+}
+
+.project-architecture {
+  display: grid;
+  gap: 1rem;
+}
+
+.project-architecture__flow {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-architecture__flow > li {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.architecture-node {
+  border: 1px solid var(--color-border-strong);
+  padding: 0.85rem;
+  background: linear-gradient(
+    140deg,
+    color-mix(in srgb, var(--color-surface-elevated) 82%, transparent),
+    color-mix(in srgb, var(--color-surface) 94%, transparent)
+  );
+}
+
+.architecture-node__step {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary-soft);
+  font-size: 0.7rem;
+}
+
+.architecture-node strong {
+  display: block;
+  color: var(--color-text);
+}
+
+.architecture-node p {
+  margin: 0.5rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.83rem;
+  line-height: 1.5;
+}
+
+.architecture-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--color-text-subtle);
+  font-size: 0.72rem;
+  justify-self: center;
+}
+
+.architecture-link span {
+  color: var(--color-accent);
+  font-size: 0.95rem;
+}
+
+.project-architecture__services {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+}
+
+.architecture-node--service {
+  border-color: color-mix(
+    in srgb,
+    var(--color-accent) 35%,
+    var(--color-border)
+  );
+}
+
+.architecture-node--service ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1rem;
+  color: var(--color-text-subtle);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+@media (min-width: 1024px) {
+  .project-architecture__flow {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: stretch;
+  }
+
+  .project-architecture__flow > li {
+    grid-template-rows: 1fr auto;
+  }
+
+  .architecture-link {
+    justify-self: end;
+  }
+}
