@@ -11,7 +11,8 @@ export const projects: readonly Project[] = [
     descriptionKey: 'projects.finca.description',
     problemKey: 'projects.finca.problem',
     solutionKey: 'projects.finca.solution',
-    badge: 'OFFLINE FIRST',
+    badge: null,
+    badgeKey: 'projects.finca.badge',
     technologies: [
       'Angular 20',
       'TypeScript',

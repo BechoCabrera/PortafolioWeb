@@ -116,6 +116,7 @@ export const translationKeys = [
   'projects.notFound.body',
   'projects.notFound.back',
   'projects.finca.category',
+  'projects.finca.badge',
   'projects.finca.shortDescription',
   'projects.finca.description',
   'projects.finca.problem',

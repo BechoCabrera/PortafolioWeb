@@ -78,6 +78,7 @@ export interface Project {
   readonly problemKey: TranslationKey;
   readonly solutionKey: TranslationKey;
   readonly badge: string | null;
+  readonly badgeKey?: TranslationKey | null;
   readonly technologies: readonly string[];
   readonly featureKeys: readonly TranslationKey[];
   readonly technicalChallengeKeys: readonly TranslationKey[];

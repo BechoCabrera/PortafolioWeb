@@ -132,6 +132,7 @@ export const es: Translations = {
     'La ruta solicitada no corresponde a un caso de estudio disponible en este portafolio.',
   'projects.notFound.back': 'Volver a proyectos',
   'projects.finca.category': 'Plataforma de Gestión Ganadera',
+  'projects.finca.badge': 'MODO OFFLINE',
   'projects.finca.shortDescription':
     'Digitalización y trazabilidad de procesos ganaderos con enfoque offline-first.',
   'projects.finca.description':

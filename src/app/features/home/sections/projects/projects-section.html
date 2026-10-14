@@ -50,7 +50,9 @@
               {{ t(project.shortDescriptionKey) }}
             </p>
 
-            @if (project.badge) {
+            @if (project.badgeKey) {
+              <span class="project-preview__badge">{{ t(project.badgeKey) }}</span>
+            } @else if (project.badge) {
               <span class="project-preview__badge">{{ project.badge }}</span>
             }
 

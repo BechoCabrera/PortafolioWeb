@@ -131,6 +131,7 @@ export const en: Translations = {
     'The requested route does not match any available case study in this portfolio.',
   'projects.notFound.back': 'Back to projects',
   'projects.finca.category': 'Livestock Management Platform',
+  'projects.finca.badge': 'OFFLINE FIRST',
   'projects.finca.shortDescription':
     'Digitalized cattle operations with traceability and an offline-first workflow.',
   'projects.finca.description':
