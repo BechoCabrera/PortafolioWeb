@@ -1,0 +1,134 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Manuel Cabrera - CV</title>
+  <style>
+    :root {
+      --text: #121212;
+      --muted: #4a4a4a;
+      --line: #d9d9d9;
+      --accent: #5b3df5;
+      --bg: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.45;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .page {
+      max-width: 920px;
+      margin: 24px auto;
+      padding: 28px;
+      border: 1px solid var(--line);
+    }
+    h1 { margin: 0; font-size: 30px; }
+    .role { margin-top: 4px; color: var(--accent); font-weight: 600; }
+    .contact { margin-top: 12px; color: var(--muted); font-size: 14px; }
+    .section { margin-top: 22px; }
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    p { margin: 0; }
+    ul { margin: 8px 0 0 18px; padding: 0; }
+    li { margin: 4px 0; }
+    .item { margin-top: 12px; }
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-weight: 600;
+    }
+    .item-sub { color: var(--muted); margin-top: 2px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+    @media print {
+      .page { margin: 0; border: 0; padding: 0; max-width: none; }
+      body { margin: 16mm; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>Manuel Cabrera</h1>
+      <div class="role">Desarrollador Full Stack | .NET + Angular</div>
+      <div class="contact">
+        Colombia · Remoto | ingmanuelcs@gmail.com | github.com/BechoCabrera | linkedin.com/in/manuel-alberto-cabrera-silva
+      </div>
+    </header>
+
+    <section class="section">
+      <h2>Perfil Profesional</h2>
+      <p>
+        Desarrollador Full Stack con mas de 5 anos de experiencia construyendo soluciones empresariales con .NET, Angular y SQL Server.
+        Especializado en APIs REST, arquitectura de software, optimizacion de bases de datos y evolucion de sistemas en produccion.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Experiencia</h2>
+      <article class="item">
+        <div class="item-head">
+          <span>Desarrollador Backend .NET / Tech Lead - FISE</span>
+          <span>Sep 2021 - Actualidad</span>
+        </div>
+        <div class="item-sub">Desarrollo de soluciones empresariales y liderazgo tecnico</div>
+        <ul>
+          <li>Diseno e implementacion de APIs REST con ASP.NET Core.</li>
+          <li>Arquitectura de soluciones con enfoque en Clean Architecture y principios SOLID.</li>
+          <li>Optimizacion de consultas y procesos sobre SQL Server.</li>
+          <li>Integraciones empresariales y soporte a sistemas criticos.</li>
+          <li>Automatizacion de despliegues y pipelines CI/CD en Azure DevOps.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2>Proyectos Destacados</h2>
+      <article class="item">
+        <div class="item-head"><span>FincaApp</span><span>Angular + .NET + SQL Server + PWA</span></div>
+        <div class="item-sub">Plataforma de gestion ganadera con enfoque offline-first y sincronizacion posterior.</div>
+      </article>
+      <article class="item">
+        <div class="item-head"><span>Inventario y Gestion Empresarial</span><span>Angular + ASP.NET Core + SQL Server</span></div>
+        <div class="item-sub">Control de inventario, ventas y procesos administrativos en una sola plataforma.</div>
+      </article>
+      <article class="item">
+        <div class="item-head"><span>E-commerce Full Stack</span><span>Angular + ASP.NET Core + Stripe + Redis</span></div>
+        <div class="item-sub">Catalogo, carrito, checkout, pagos y ordenes en arquitectura desacoplada.</div>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2>Tecnologias</h2>
+      <div class="chips">
+        <span class="chip">C#</span>
+        <span class="chip">.NET / ASP.NET Core</span>
+        <span class="chip">Angular</span>
+        <span class="chip">TypeScript</span>
+        <span class="chip">SQL Server</span>
+        <span class="chip">Entity Framework Core</span>
+        <span class="chip">Azure DevOps</span>
+        <span class="chip">Git</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

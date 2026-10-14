@@ -29,8 +29,8 @@ export class Contact {
   protected readonly whatsappLink =
     'https://wa.me/573166034064?text=Hola%20Manuel%2C%20quiero%20comunicarme%20contigo.';
 
-  // Hidden until the CV file is intentionally added to public/assets/documents.
-  protected readonly hasCvFile = signal(false);
+  // Enabled because the CV file exists at public/assets/documents/manuel-cabrera-cv.htm.
+  protected readonly hasCvFile = signal(true);
 
   protected readonly form = new FormGroup<ContactFormModel>({
     name: new FormControl('', {
